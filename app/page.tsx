@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import musicImage from "../public/musicImage.png";
 import music from "../public/music.png";
 export default function Home() {
   return (
