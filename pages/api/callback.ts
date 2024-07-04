@@ -1,4 +1,7 @@
+import { SpotifyToken } from "../../types";
 import { NextApiRequest, NextApiResponse } from "next";
+
+
 
 const callback = async (req: NextApiRequest, res: NextApiResponse) => {
   const client_id = process.env.CLIENT_ID;
@@ -37,7 +40,8 @@ const callback = async (req: NextApiRequest, res: NextApiResponse) => {
       throw new Error("Failed to fetch access token");
     }
 
-    const data = await response.json();
+    const data: SpotifyToken = await response.json();
+
     return res.status(200).json(data);
   } catch (error) {
     return res.status(500).json({ error: "Failed to fetch access token" });
